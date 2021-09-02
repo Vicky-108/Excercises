@@ -1,0 +1,28 @@
+#container{
+    width:800px;
+    height: 500px;
+    background-color: burlywood;
+    border: 1px solid black;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+.box1{
+    width: 800px;
+    height: 75px;
+    background-color: whitesmoke;
+    
+}
+.inbox li{
+    width: 800px;
+    display: inline;
+    padding: 10px;
+    align-content:center;
+}.footer{
+   width: 800px;
+   height: 75px;
+   position: fixed;
+   background-color: whitesmoke;
+   margin-top: 425px;
+  
+}

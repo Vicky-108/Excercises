@@ -1,0 +1,22 @@
+#mainbox{
+    width: 800px;
+    background-color:teal;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    
+}
+.top{
+position: relative;
+margin:0 auto;  
+}
+.bottom{
+    color: white;
+display: flex;
+justify-content: stretch;
+}.bottom :nth-last-child(3){
+    margin: 0 auto;
+}.bottom :nth-last-child(1){
+    align-self:flex-end;
+}
+
