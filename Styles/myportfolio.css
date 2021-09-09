@@ -1,0 +1,44 @@
+#container{
+    width:1000px;
+    height: 1000px;
+    border-radius: 1px black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    margin-left: 150px;
+    margin-top: -8px;
+    font-family: cursive;
+    font-weight: normal;
+
+} 
+h3{
+  color:chocolate
+}
+.leftbox{
+    width: 400px;
+    height: 1000px;
+    text-align: justify;
+    background-color: gainsboro;
+   padding:20px; 
+   padding-top:35px;
+   
+  }
+  .leftbox img{
+  margin-left: 50px;
+    margin-top: -20px;
+  }
+  .rightbox{
+    width: 600px;
+    height: 1000px;
+   flex-wrap: wrap;
+    text-align: justify;
+   padding-left: 20px;
+    background-color:lightgrey;
+    position: relative;
+   padding-top:-10px;
+  }
+  p img{
+width:15px;
+
+  }
