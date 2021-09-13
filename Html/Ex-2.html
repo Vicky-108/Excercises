@@ -5,38 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script >
+<script >
 
-var xmlobj = new XMLHttpRequest();
-var url ="https://jsonplaceholder.typicode.com/posts/1";
-
-xmlobj.onreadystatechange = function(){
-    if(this.status = 200){
-        var jsobj = JSON.parse(this.responseText);
-        document.getElementById("id1").innerHTML=jsobj.title;
-        document.getElementById("id2").innerHTML=jsobj.body;
+    var xmlobj = new XMLHttpRequest();
+    
+ 
+    xmlobj.onreadystatechange = function(){
+    console.log(this.responseText);
+    var jsobj = JSON.parse(this.responseText);
+    document.getElementById("id1").innerHTML=jsobj.title;
+    document.getElementById("id2").innerHTML=jsobj.body;
         
-    }
+    
 }
-xmlobj.open("GET",url,true);
-xmlobj.send();
-
-
-/*function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, true ); // false for synchronous request
-    xmlHttp.send();
-    return xmlHttp.responseText;
+ 
+function getValue(){
+  var url="https://jsonplaceholder.typicode.com/posts/"+document.getElementById("userid").value;
+  xmlobj.open("GET",url,true);
+  xmlobj.send();
 }
-var ixxx=httpGet(jsonplaceholder.typicode.com/posts/1);
-console.log(ixxx);*/
 
-    </script>
+
+
+</script>
 </head>
 
 <body>
+  Enter id: <input type="text" id="userid">
 <h1 id="id1"></h1> 
 <p id="id2"></p>
+<button type="button" onclick="getValue()">Click</button>
+
 </body>
 </html>

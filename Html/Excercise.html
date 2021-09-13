@@ -8,7 +8,7 @@
     <script>
         var name;
     var getname=function(){
-      alert(document.getElementById("username").value);
+     document.getElementById("p").innerHTML=document.getElementById("username").value;
 }
         var setname= function(){
             alert()
@@ -21,7 +21,7 @@
    <input type="text" style="width: 100px;" name="user" id="username"> <br> <br>
    <button id="firstbut" onclick="getname()">Submit</button>
    <button id="secondbut" onclick="setname()">Confirmation</button>
- 
+ <h1 id="p"></h1>
 
 </body>
 </html>
