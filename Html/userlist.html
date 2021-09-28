@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Userlists</title>
+
+</head>
+<style>
+
+    
+</style>
+<body>
+    <div class="container">
+        <h1>User Details</h1>
+           <form >
+               <div style="width: 500px;" class="form-group">
+                <label  for="id">ID</label>
+                <input class="form-control" id="id" type="text"> <br>
+                <label for="name">Name</label>
+                <input  class="form-control" id="name" type="text"><br>
+                <label for="email">Email</label>
+                <input   class="form-control"id="email" type="email"><br>
+                <label  for="phone">Phone</label>
+                <input  class="form-control" id="phone"  type="text"><br>
+                <label  for="address">Address</label>
+                <input  class="form-control" id="address" type="text"> <br>
+                <button class="btn btn-success" onclick="setValue()" type="submit">Add</button>
+                <button class="btn btn-primary"  onclick="clearValue()" type="button">Clear</button>
+               </div>
+            </form>
+            <h2>Table List</h2>
+    <table class="table table-bordered" id="table">
+        <tr>
+           <th id="id1">ID</th>
+           <th>Name</th>
+           <th>Email</th>
+           <th>Phone</th>
+           <th>Address</th>
+        </tr>
+    </table>
+   
+</div>
+
+
+<script>
+     var n=document.getElementById("table").rows.length;
+    
+     function setValue() {
+       if(n<=2){
+     var table = document.getElementById("table");
+     var row = table.insertRow(n);
+     var cell1 = row.insertCell(0);
+     var cell2 = row.insertCell(1);
+     var cell3 = row.insertCell(2);
+     var cell4 = row.insertCell(3);
+     var cell5 = row.insertCell(4);
+   
+    cell1.innerHTML = document.getElementById("id").value;
+    cell2.innerHTML = document.getElementById("name").value
+    cell3.innerHTML = document.getElementById("email").value
+    cell4.innerHTML = document.getElementById("phone").value
+    cell5.innerHTML = document.getElementById("address").value
+   n++;
+    }
+    else{
+        alert("Table volume is full");
+    }
+    
+}
+function clearValue(){
+    document.getElementById("id").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("address").value = "";
+}
+</script>
+       
+</body>
+</html>
