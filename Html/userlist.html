@@ -29,7 +29,7 @@
                 <input  class="form-control" id="phone"  type="text"><br>
                 <label  for="address">Address</label>
                 <input  class="form-control" id="address" type="text"> <br>
-                <button class="btn btn-success" onclick="setValue()" type="submit">Add</button>
+                <button class="btn btn-success" onclick="setValue()" type="button">Add</button>
                 <button class="btn btn-primary"  onclick="clearValue()" type="button">Clear</button>
                </div>
             </form>
@@ -67,7 +67,7 @@
     cell5.innerHTML = document.getElementById("address").value
    n++;
     }
-    else{
+    else{ 
         alert("Table volume is full");
     }
     
