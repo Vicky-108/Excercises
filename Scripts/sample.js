@@ -1,3 +1,7 @@
-var arr=[1,2,3,4];
-var cou=arr.reduce((initialval,currentval)=>initialval+currentval);
-console.log(cou);
+
+for(var i = 1008; i<9990; i = i+18){
+if(i.toString().split("").reduce((val, va) => {
+    return Number(val)+Number(va);
+}) == 18)
+ console.log(i);
+}

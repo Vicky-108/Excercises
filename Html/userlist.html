@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Userlists</title>
 
 </head>
@@ -17,21 +18,31 @@
 <body>
     <div class="container">
         <h1>User Details</h1>
-           <form >
-               <div style="width: 500px;" class="form-group">
+       
+           <form class="form-inline" >
+               <div  class="form-group">
                 <label  for="id">ID</label>
                 <input class="form-control" id="id" type="text"> <br>
+            </div>
+            <div  class="form-group">
                 <label for="name">Name</label>
-                <input  class="form-control" id="name" type="text"><br>
+               <input  class="form-control" id="name" type="text"><br>
+            </div> <br><br>
+               <div  class="form-group">
                 <label for="email">Email</label>
                 <input   class="form-control"id="email" type="email"><br>
-                <label  for="phone">Phone</label>
+            </div>
+            <div  class="form-group">
+                 <label  for="phone">Phone</label>
                 <input  class="form-control" id="phone"  type="text"><br>
+            </div> <br><br>
+            <div  class="form-group">
                 <label  for="address">Address</label>
                 <input  class="form-control" id="address" type="text"> <br>
-                <button class="btn btn-success" onclick="setValue()" type="button">Add</button>
+            </div> <br><br>
+                <button id="add" name="adding" class="btn btn-success" onclick="setValue()" type="button">Add</button>
                 <button class="btn btn-primary"  onclick="clearValue()" type="button">Clear</button>
-               </div>
+             
             </form>
             <h2>Table List</h2>
     <table class="table table-bordered" id="table">
@@ -41,7 +52,9 @@
            <th>Email</th>
            <th>Phone</th>
            <th>Address</th>
+           <th>Button</th>
         </tr>
+       
     </table>
    
 </div>
@@ -49,8 +62,11 @@
 
 <script>
      var n=document.getElementById("table").rows.length;
-    
+     
+     
      function setValue() {
+        var btn;
+        var btn1;
        if(n<=10){
      var table = document.getElementById("table");
      var row = table.insertRow(n);
@@ -59,19 +75,73 @@
      var cell3 = row.insertCell(2);
      var cell4 = row.insertCell(3);
      var cell5 = row.insertCell(4);
+     var cell6 = row.insertCell(5);
+    
+   
    
     cell1.innerHTML = document.getElementById("id").value;
-    cell2.innerHTML = document.getElementById("name").value
-    cell3.innerHTML = document.getElementById("email").value
-    cell4.innerHTML = document.getElementById("phone").value
-    cell5.innerHTML = document.getElementById("address").value
-   n++;
+    cell2.innerHTML = document.getElementById("name").value;
+    cell3.innerHTML = document.getElementById("email").value;
+    cell4.innerHTML = document.getElementById("phone").value;
+    cell5.innerHTML = document.getElementById("address").value;
+     
+     btn=document.createElement("button");
+  btn1=document.createElement("button");
+    btn.id=n;
+     
+     btn.innerHTML='<i class="fa-regular fa-trash-can"></i>';
+     btn1.innerHTML='<i class="fa-regular fa-pen"></i>';
+    cell6.append(btn);
+    cell6.append(btn1);
+    n++;
+  //console.log(n);
+   //console.log(btn.id);
+  
     }
     else{ 
         alert("Table volume is full");
     }
-    
+  
+    btn.onclick=function deleteValue(){
+        console.log(document.getElementById(btn.id));
+        console.log(btn.id);
+        console.log(n);
+      
+   document.getElementById("table").deleteRow(btn.id);
+
+ n--;
+} 
+btn1.onclick=function editValue(){
+    var update=document.getElementById("add");
+    update.innerHTML="update";
+    clearValue();
+   document.getElementById("id").value =  cell1.innerHTML ;
+   document.getElementById("name").value = cell2.innerHTML ;
+   document.getElementById("email").value=  cell3.innerHTML;
+   document.getElementById("phone").value=   cell4.innerHTML;
+  document.getElementById("address").value=cell5.innerHTML;
+  update.onclick=function change(){
+    cell1.innerHTML=   document.getElementById("id").value;
+    cell2.innerHTML=   document.getElementById("name").value;
+    cell3.innerHTML=   document.getElementById("email").value;
+    cell4.innerHTML=   document.getElementById("phone").value;
+    cell5.innerHTML=   document.getElementById("address").value;
+    var reset=document.getElementById("add");
+    reset.innerHTML="add";
+    reset.onclick=setValue;
+
+ 
+  }
+   
+ }
+
 }
+  
+
+
+
+
+
 function clearValue(){
     document.getElementById("id").value = "";
     document.getElementById("name").value = "";
@@ -79,6 +149,7 @@ function clearValue(){
     document.getElementById("phone").value = "";
     document.getElementById("address").value = "";
 }
+
 </script>
        
 </body>

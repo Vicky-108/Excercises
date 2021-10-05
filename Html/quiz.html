@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<script>
+   
+
+  
+</script>
+<body>
+    <div class="container">
+        <h1>Welcome to the quiz</h1>
+         Your name: <input type="text" placeholder="Enter your name" >
+        <button type="submit" onclick="setValue()">Submit</button>
+        <div>
+            <h1 id="head"></h1>
+           <b> <p id="q1"></p></b>
+           <label for=""></label> <input id="q1o1" type="checkbox">
+            <input id="q1o2" type="checkbox">
+            <input id="q1o3" type="checkbox">
+            <input id="q104" type="checkbox">
+        </div>
+
+    </div>
+    <script>
+         var xmlObj=new XMLHttpRequest();
+var url="https://opentdb.com/api.php?amount=10&type=multiple";
+xmlObj.open("GET",url,true);
+    xmlObj.send();
+    var jObj;
+xmlObj.onreadystatechange=function(){
+   // console.log(this.responseText);
+     jObj=JSON.parse(this.responseText);
+    console.log(jObj.results[0].question);
+    
+
+
+};
+
+
+   
+
+        function setValue(){
+    document.getElementById("q1").innerHTML=jObj.results[0].question;
+    document.getElementById("q1o1").setValue=jObj.results[0].correct_answer;
+   // document.getElementById("q1o2").innerHTML=
+    //document.getElementById("q1o3").innerHTML=
+    //document.getElementById("q1o4").innerHTML=
+}
+    </script>
+
+</body>
+</html>

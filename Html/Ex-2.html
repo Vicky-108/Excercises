@@ -8,8 +8,6 @@
 <script >
 
     var xmlobj = new XMLHttpRequest();
-    
- 
     xmlobj.onreadystatechange = function(){
     console.log(this.responseText);
     var jsobj = JSON.parse(this.responseText);
