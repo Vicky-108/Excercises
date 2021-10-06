@@ -62,11 +62,10 @@
 
 <script>
      var n=document.getElementById("table").rows.length;
-     
-     
-     function setValue() {
+      function setValue() {
         var btn;
         var btn1;
+       
        if(n<=10){
      var table = document.getElementById("table");
      var row = table.insertRow(n);
@@ -77,41 +76,37 @@
      var cell5 = row.insertCell(4);
      var cell6 = row.insertCell(5);
     
-   
-   
-    cell1.innerHTML = document.getElementById("id").value;
-    cell2.innerHTML = document.getElementById("name").value;
-    cell3.innerHTML = document.getElementById("email").value;
-    cell4.innerHTML = document.getElementById("phone").value;
-    cell5.innerHTML = document.getElementById("address").value;
+     cell1.innerHTML = document.getElementById("id").value;
+     cell2.innerHTML = document.getElementById("name").value;
+     cell3.innerHTML = document.getElementById("email").value;
+     cell4.innerHTML = document.getElementById("phone").value;
+     cell5.innerHTML = document.getElementById("address").value;
      
      btn=document.createElement("button");
-  btn1=document.createElement("button");
-    btn.id=n;
+     btn1=document.createElement("button");
+     btn.id=n;
      
      btn.innerHTML='<i class="fa-regular fa-trash-can"></i>';
      btn1.innerHTML='<i class="fa-regular fa-pen"></i>';
-    cell6.append(btn);
-    cell6.append(btn1);
-    n++;
-  //console.log(n);
-   //console.log(btn.id);
-  
+     cell6.append(btn);
+     cell6.append(btn1);
+     
+     n++;
+ 
     }
     else{ 
         alert("Table volume is full");
     }
   
     btn.onclick=function deleteValue(){
-        console.log(document.getElementById(btn.id));
-        console.log(btn.id);
-        console.log(n);
-      
-   document.getElementById("table").deleteRow(btn.id);
-
- n--;
-} 
-btn1.onclick=function editValue(){
+    document.getElementById("table").deleteRow(btn.id);
+         for(var i=document.getElementById("table").rows.length;i>btn.id;i--){
+               document.getElementById(i).id=i-1;
+           }
+   n--;
+ } 
+ 
+   btn1.onclick=function editValue(){
     var update=document.getElementById("add");
     update.innerHTML="update";
     clearValue();
@@ -119,29 +114,23 @@ btn1.onclick=function editValue(){
    document.getElementById("name").value = cell2.innerHTML ;
    document.getElementById("email").value=  cell3.innerHTML;
    document.getElementById("phone").value=   cell4.innerHTML;
-  document.getElementById("address").value=cell5.innerHTML;
-  update.onclick=function change(){
-    cell1.innerHTML=   document.getElementById("id").value;
-    cell2.innerHTML=   document.getElementById("name").value;
-    cell3.innerHTML=   document.getElementById("email").value;
-    cell4.innerHTML=   document.getElementById("phone").value;
-    cell5.innerHTML=   document.getElementById("address").value;
+   document.getElementById("address").value=cell5.innerHTML;
+   update.onclick=function change(){
+   
+   cell1.innerHTML=   document.getElementById("id").value;
+   cell2.innerHTML=   document.getElementById("name").value;
+   cell3.innerHTML=   document.getElementById("email").value;
+   cell4.innerHTML=   document.getElementById("phone").value;
+   cell5.innerHTML=   document.getElementById("address").value;
     var reset=document.getElementById("add");
     reset.innerHTML="add";
     reset.onclick=setValue;
-
- 
   }
    
  }
 
 }
   
-
-
-
-
-
 function clearValue(){
     document.getElementById("id").value = "";
     document.getElementById("name").value = "";
